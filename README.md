@@ -1,5 +1,6 @@
 # itunes-assigment
 This is a small web app simulating an iTunes like application using the Chinook sqlite database.
+
 Deployed on [Heroku](https://itunes-assignment.herokuapp.com/)
 
 ## Features
