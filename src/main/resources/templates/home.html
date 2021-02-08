@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>iTunes</title>
+</head>
+<body style="height: 100%; width: 100%; background-color: #ffffff">
+
+<div class="d-flex p-2 rounded" style="margin: 1%; align-self: center; width: 100%; background-color: #dae0e5">
+    <h1 style="margin-right: 30px">iTunes </h1>
+    <form class="form-inline" style="align-self: center; width: 100%" th:action="@{search}">
+        <input class="form-control input-lg" style="width: 75%" type="search" th:name="search"
+               placeholder="Search for a track"
+               aria-label="Search"
+               required>
+        <button class="btn btn-secondary" type="submit">Search</button>
+    </form>
+</div>
+<h3 style="margin: 20px">Welcome, here are some music recommendations</h3>
+<div class="d-flex flex-row bd-highlight mb-3">
+    <div class="card shadow" style="width: 18rem; height: 20rem; margin: auto">
+        <div class="card-body">
+            <h5 class="card-title">5 random tracks</h5>
+            <div th:each="track: ${tracks}">
+                <p th:text="${track.name}">
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow" style="width: 18rem; height: 20rem; margin: auto">
+        <div class="card-body">
+            <h5 class="card-title">5 random artists</h5>
+            <div th:each="artist: ${artists}">
+                <p th:text="${artist.name}">
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow" style="width: 18rem; height: 20rem; margin: auto">
+        <div class="card-body">
+            <h5 class="card-title">5 random genres</h5>
+            <div th:each="genre: ${genres}">
+                <p th:text="${genre.name}">
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

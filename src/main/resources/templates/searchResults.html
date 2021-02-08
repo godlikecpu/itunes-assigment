@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Search results</title>
+</head>
+<body>
+<form class="form-inline" style="margin-left: 3%; margin-top: 1%; margin-bottom: 1%" th:action="@{/}">
+    <button class="btn btn-lg btn-secondary" style="display: flex; align-items: center;" type="submit">
+        <- Home
+    </button>
+</form>
+<p style="margin-left: 3%" th:text='|Search resuslts for: "${query}"|'></p>
+<div th:if="${tracks.size() > 0}">
+    <div class="table-hover table-striped" style="margin-right: 3%; margin-left: 3%; width: auto">
+        <table class="table" style="margin-bottom: 0">
+            <thead>
+            <tr>
+                <th scope="col">Track</th>
+                <th scope="col">Artist</th>
+                <th scope="col">Album</th>
+                <th scope="col">Genre</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="track: ${tracks}">
+                <td th:text="${track.name}"></td>
+                <td th:text="${track.artist}"></td>
+                <td th:text="${track.album}"></td>
+                <td th:text="${track.genre}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div th:if="${tracks.size() == 0}">
+    <div class="alert alert-danger" role="alert" style="width: fit-content; margin-top: 2%; margin-left: 3%;">
+        <div style="display: flex; justify-content: space-between;">
+            <h4 class="alert-heading">No results</h4>
+        </div>
+    </div>
+</div>
+</body>
+</html>
