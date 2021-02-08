@@ -6,6 +6,8 @@ This is a small web app simulating an iTunes like application using the Chinook 
   - Thymeleaf webpage
 
 ## API Docs
+Postman collection for API testing is available in the root of the project 
+
 ### Get all customers
 ```
 GET
